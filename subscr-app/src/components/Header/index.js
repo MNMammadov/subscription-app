@@ -25,11 +25,16 @@ import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import { Link } from 'react-router-dom'
 
 export const PrimarySearchAppBar = () => {
     // style start 
     const drawerWidth = 240;
     const useStyles = makeStyles((theme) => ({
+        linkTo: {
+            color: "black",
+            textDecoration: "none"
+        },
         grow: {
             flexGrow: 1,
         },
@@ -184,7 +189,7 @@ export const PrimarySearchAppBar = () => {
                 anchorOrigin={{ vertical: 'top', horizontal: "right" }}
                 id={notificationId}
                 keepMounted
-                marginThreshold={50}
+                marginThreshold={20}
                 width={55}
                 transformOrigin={{ vertical: 'top', horizontal: "right" }}
                 open={isBurgerOpen}
@@ -266,8 +271,6 @@ export const PrimarySearchAppBar = () => {
 
     return (
         <>
-
-
             <div className={classes.grow}>
                 <AppBar position="static">
                     <Toolbar>
@@ -297,12 +300,14 @@ export const PrimarySearchAppBar = () => {
                             </div>
                             <Divider />
                             <List>
-                                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                                    <ListItem button key={text}>
-                                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                                        <ListItemText primary={text} />
-                                    </ListItem>
-                                ))}
+                                <ListItem button key="servicesPage">
+                                    <ListItemIcon>  <InboxIcon />  </ListItemIcon>
+                                    <Link className={classes.linkTo} to="/">Services Table</Link>
+                                </ListItem>
+                                <ListItem button key="register">
+                                    <ListItemIcon>  <MailIcon />  </ListItemIcon>
+                                    <Link className={classes.linkTo} to="/register">Register</Link>
+                                </ListItem>
                             </List>
                             <Divider />
                             <List>
