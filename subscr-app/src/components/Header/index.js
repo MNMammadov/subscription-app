@@ -47,6 +47,11 @@ export const PrimarySearchAppBar = () => {
                 display: 'block',
             },
         },
+        positionMenu: {
+            position: "absolute",
+            top: "20px",
+            left: "10px "
+        },
         search: {
             position: 'relative',
             borderRadius: theme.shape.borderRadius,
@@ -185,6 +190,7 @@ export const PrimarySearchAppBar = () => {
     const renderNotification = (
         <Box marginTop="100px">
             <Menu
+                className={classes.positionMenu}
                 notificationMenu={notificationMenu}
                 anchorOrigin={{ vertical: 'top', horizontal: "right" }}
                 id={notificationId}
